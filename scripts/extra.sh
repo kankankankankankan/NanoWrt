@@ -35,3 +35,6 @@ mkdir -p package/luci-app-diskman
 wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Makefile -O package/luci-app-diskman/Makefile
 mkdir -p package/parted
 wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Makefile
+
+# hello world
+sed -i "/routing/a\\$(base64 -d <<< "c3JjLWdpdCBoZWxsb3dvcmxkIGh0dHBzOi8vZ2l0aHViLmNvbS9mdzg3Ni9oZWxsb3dvcmxkCg==" )" feeds.conf.default
