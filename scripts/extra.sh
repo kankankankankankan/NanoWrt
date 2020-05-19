@@ -7,7 +7,7 @@ cp -r lean/* ./
 rm -rf lean luci-lib-docker luci-app-dockerman luci-app-diskman parted
 
 # openclash
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
+svn co https://github.com/vernesong/OpenClash/branches/master/luci-app-openclash
 sed -i 's/444/808080/g' luci-app-openclash/files/usr/lib/lua/luci/view/openclash/myip.htm
 pushd base-files/files
 mkdir -p etc/openclash/core
