@@ -5,4 +5,4 @@ CONFIG_PACKAGE_kmod-i2c-gpio-custom=y
 CONFIG_PACKAGE_kmod-i2c-smbus=y
 CONFIG_PACKAGE_python-pillow=y
 CONFIG_PACKAGE_python-smbus=y
-CONFIG_PACKAGE_nanohatoled=y
+CONFIG_PACKAGE_NanoHatOLED=y
