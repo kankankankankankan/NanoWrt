@@ -1,7 +1,7 @@
 #!/bin/sh
 # THIS SCIPRT ONLY RUN ONCE. Base on /etc/firstboot_${board}
 
-uci set luci.main.mediaurlbase="/luci-static/darkmatter"
+uci set luci.main.mediaurlbase="/luci-static/argon"
 
 uci batch <<EOF
 set system.@system[0].hostname=NEO
