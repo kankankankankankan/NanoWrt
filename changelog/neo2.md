@@ -1,6 +1,15 @@
 # NEO2 Changelog
 ###### （Daily syncing with the upstream repository）
 
+## 20200720
+* ~~luci-app-wrtbwmon~~
+* ~~luci-theme-darkmatter~~
+* ~~helloworld~~
+* luci-theme-argon✔
+* Hello World
+
+---
+
 ## 20200714
 * Fix dockerman
 
@@ -51,7 +60,7 @@
 
 ## 20200508
 * Add lean package
-* Hello World
+* helloworld
 
 ---
 
