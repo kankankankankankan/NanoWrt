@@ -55,3 +55,15 @@ CONFIG_DRIVER_11AC_SUPPORT=y
 CONFIG_DRIVER_11W_SUPPORT=y
 CONFIG_PACKAGE_kmod-brcmfmac=y
 CONFIG_PACKAGE_kmod-cfg80211=y
+
+CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_iperf3=y
+CONFIG_PACKAGE_bind-dig=y
+CONFIG_PACKAGE_luci-app-upnp=y
+CONFIG_PACKAGE_luci-app-frpc=y
+CONFIG_PACKAGE_luci-app-filetransfer=y
+CONFIG_PACKAGE_openssh-sftp-server=y
+
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-theme-argon-dark-mod=y
+CONFIG_PACKAGE_luci-theme-argon-light-mod=y

@@ -4,18 +4,14 @@ cd package
 # lean
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean
 cp -r lean/* ./
-rm -rf lean luci-lib-docker luci-app-docker luci-app-diskman autocore parted
+rm -rf lean luci-lib-docker luci-app-docker luci-app-diskman autocore parted luci-theme-argon
 [ -f luci-app-ttyd/root/etc/init.d/ttyd ] && rm luci-app-ttyd/root/etc/init.d/ttyd
 [ -f luci-app-rclone/luasrc/controller/rclone.lua ] && sed -i '/firstchild/Id;s/nas/services/g' luci-app-rclone/luasrc/controller/rclone.lua
 
 # autocore
 cp -r ../../../package/autocore autocore
 
-# darkmatter theme
-git clone https://github.com/apollo-ng/luci-theme-darkmatter.git
-pushd luci-theme-darkmatter
-git checkout fd88e48ad0932dd1de47ff1f4274d5202c59f4f0
-popd
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
 
 # ServerChan
 git clone https://github.com/tty228/luci-app-serverchan
