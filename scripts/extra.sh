@@ -19,7 +19,7 @@ git clone https://github.com/tty228/luci-app-serverchan
 #git clone https://github.com/jerrykuku/luci-app-vssr.git
 
 # Luci-theme-argon
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
 
 # dockerman
 #svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman
