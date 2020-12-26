@@ -83,7 +83,7 @@ jobs:
           sed -i '/touch/a\    echo /etc/firstboot_${board} >> /etc/sysupgrade.conf' package/base-files/files/etc/rc.local
           mkdir -p staging_dir/host/bin
           wget -q -O - https://github.com/upx/upx/releases/download/v3.96/upx-3.96-amd64_linux.tar.xz | tar -Jx --strip 1 -f - -C staging_dir/host/bin upx-3.96-amd64_linux/upx
-
+          
       - name: Clean Feeds
         run: |
           cd friendlywrt-h5/friendlywrt
