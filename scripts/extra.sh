@@ -11,14 +11,19 @@ rm -rf lean luci-lib-docker luci-app-docker luci-app-diskman autocore parted luc
 # autocore
 cp -r ../../../package/autocore autocore
 
+# luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
 
 # ServerChan
 git clone https://github.com/tty228/luci-app-serverchan
 
+#VSSR
+git clone https://github.com/jerrykuku/lua-maxminddb.git
+git clone https://github.com/jerrykuku/luci-app-vssr.git
+
 # dockerman
-svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman
-svn co https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker
+#svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman
+#svn co https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker
 
 # Return to "friendlywrt" directory.
 cd ../
