@@ -148,14 +148,14 @@ jobs:
           asset_content_type: application/gz
 
 
-      - name: setup aliyun oss
+      - name: Setup Aliyun OSS
         uses: manyuanrong/setup-ossutil@master
         with:
           endpoint: oss-cn-shanghai.aliyuncs.com
           access-key-id: ${{ secrets.OSS_ACCESSKEYID }}
           access-key-secret: ${{ secrets.OSS_ACCESSKEYSECRET }}
 
-      - name: cp img to aliyun
+      - name: CP img to Aliyun
         run: |
           rename "s/FriendlyWrt_(\d{8})_(NanoPi-NEO2)_aarch64_sd.img.gz/\2-black-\1.img.gz/" ./friendlywrt-h5/out/*.img.gz
           ossutil cp -rf ./friendlywrt-h5/out/*.img.gz oss://cdnqingjieme/firmware/NEO2-oled/
