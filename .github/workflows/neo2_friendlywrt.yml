@@ -98,6 +98,7 @@ jobs:
           cd friendlywrt-h5
           sed -i 's/set -eu/set -u/' scripts/mk-friendlywrt.sh
           sed -i '/install/i\./../../scripts/Mods_BeforeBuild.sh' scripts/mk-friendlywrt.sh
+          wget -O friendlywrt/package/libs/nettle/Makefile https://raw.githubusercontent.com/openwrt/openwrt/master/package/libs/nettle/Makefile
           ./build.sh nanopi_neo2.mk
       
       - name: Zip Files
