@@ -76,6 +76,9 @@ jobs:
           cat ../app_config.seed >> configs/config_h5
           cat ../forbid_config.seed | openssl enc -aes-256-cbc -a -d -pass pass:"vinewx" -pbkdf2 >> configs/config_h5
           cat ../nanohat_config.seed >> configs/config_h5
+          sed -i '1cCONFIG_TARGET_sunxi=y' configs/config_h5
+          sed -i '2cCONFIG_TARGET_sunxi_cortexa53=y' configs/config_h5
+          sed -i '3cCONFIG_TARGET_sunxi_cortexa53_DEVICE_sun50i-h5-nanopi-neo-plus2=y' configs/config_h5
           sed -i 's/dnsmasq /dnsmasq-full /' friendlywrt/include/target.mk
           cd friendlywrt
           . ../../scripts/extra.sh
