@@ -112,7 +112,7 @@ jobs:
         run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
-          cat friendlywrt-h5/friendlywrt/.config | openssl enc -aes-256-cbc -a -e -pass pass:"vinewx" -pbkdf2 > ./artifact/.config
+          cp friendlywrt-h5/friendlywrt/.config ./artifact/.config
           config_name="NEO2_v$(date "+%Y%m%d")_Config"
           release_tag="v$(date +%Y%m%d%H%M)_NEO2"
           sd_path="./friendlywrt-h5/out/FriendlyWrt_$(date +%Y%m%d)_NanoPi-NEO2_aarch64_sd.img.gz"
