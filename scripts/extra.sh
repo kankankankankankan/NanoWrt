@@ -46,6 +46,6 @@ cd ../
 
 # passwall
 echo 'src-git lienol https://github.com/Lienol/openwrt-package' >> feeds.conf.default
-echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >> feeds.conf.default
-echo 'src-git small https://github.com/kenzok8/small' >> feeds.conf.default
+#echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >> feeds.conf.default
+#echo 'src-git small https://github.com/kenzok8/small' >> feeds.conf.default
 echo 'src-git diy1 https://github.com/xiaorouji/openwrt-passwall.git' >> feeds.conf.default
