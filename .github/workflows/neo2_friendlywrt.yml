@@ -160,3 +160,9 @@ jobs:
         run: |
           rename "s/FriendlyWrt_(\d{8})_(NanoPi-NEO2)_aarch64_sd.img.gz/\2-black-\1.img.gz/" ./friendlywrt-h5/out/*.img.gz
           ossutil cp -rf ./friendlywrt-h5/out/*.img.gz oss://cdnqingjieme/firmware/NEO2-oled/
+          
+      - name: Delete workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          retain_days: 1
+          keep_minimum_runs: 3
