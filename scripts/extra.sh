@@ -39,7 +39,8 @@ cd ../
 #nettls修复
 #wget -O friendlywrt/package/libs/nettle/Makefile https://raw.githubusercontent.com/openwrt/openwrt/master/package/libs/nettle/Makefile
 #golang修复
-#wget -O friendlywrt/feeds/packages/lang/golang/golang/Makefile https://raw.githubusercontent.com/openwrt/packages/master/lang/golang/golang/Makefile
+mkdir -p friendlywrt/feeds/packages/lang/golang/golang/
+wget -O friendlywrt/feeds/packages/lang/golang/golang/Makefile https://raw.githubusercontent.com/openwrt/packages/master/lang/golang/golang/Makefile
 
 # diskman
 #mkdir -p package/luci-app-diskman
