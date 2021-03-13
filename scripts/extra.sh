@@ -24,9 +24,9 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
 # AdGuard Home
 git clone https://github.com/kankankankankankan/luci-app-adguardhome.git
 
-# JD-dailybonus
-git clone https://github.com/jerrykuku/node-request.git
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
+# JD-dailybonus //临时删除
+#git clone https://github.com/jerrykuku/node-request.git
+#git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
 
 # dockerman
 #svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman
@@ -48,4 +48,4 @@ cd ../
 echo 'src-git lienol https://github.com/Lienol/openwrt-package' >> feeds.conf.default
 #echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >> feeds.conf.default
 #echo 'src-git small https://github.com/kenzok8/small' >> feeds.conf.default
-echo 'src-git diy1 https://github.com/xiaorouji/openwrt-passwall.git' >> feeds.conf.default
+#echo 'src-git diy1 https://github.com/xiaorouji/openwrt-passwall.git' >> feeds.conf.default
