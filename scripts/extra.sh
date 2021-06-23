@@ -3,56 +3,43 @@ cd package
 
 # lean
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean
-cp -r lean/* ./
-rm -rf lean luci-lib-docker luci-app-docker luci-app-diskman autocore parted luci-theme-argon parted
+pushd lean
+rm -rf luci-app-diskman autocore parted luci-theme-argon
 [ -f luci-app-ttyd/root/etc/init.d/ttyd ] && rm luci-app-ttyd/root/etc/init.d/ttyd
 [ -f luci-app-rclone/luasrc/controller/rclone.lua ] && sed -i '/firstchild/Id;s/nas/services/g' luci-app-rclone/luasrc/controller/rclone.lua
+popd
+
+# Fix FullCone NAT in Firewall
+rm -rf network/config/firewall
+svn co https://github.com/coolsnowwolf/lede/trunk/package/network/config/firewall network/config/firewall
 
 # autocore
-cp -r ../../../package/autocore autocore
+cp -avx ../../package/autocore .
+
+# argon theme
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+sed -i '/\t\t\t\t\t\t/d;s/ \/.*$//' luci-theme-argon/luasrc/view/themes/argon/footer.htm
 
 # ServerChan
 git clone https://github.com/tty228/luci-app-serverchan
 
-# VSSR
-#git clone https://github.com/jerrykuku/lua-maxminddb.git
-#git clone https://github.com/jerrykuku/luci-app-vssr.git
+# hello world
+git clone $(echo "U2FsdGVkX195Fd0+OOQwOmVDUYmwbC3DbP0L36e5Qh9rMZE8ttRzVAgjLKRaKdEcD2l7amRGTKIHHtf6jJcWk1LwFNDnWlw/vYOc6CuaClY=" | openssl enc -aes-256-cbc -a -d -pass pass:"vinewx" -pbkdf2)
 
-# Luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+core=$(echo "U2FsdGVkX1+02cybV6rrqDhCCHmS43vO2d4IFASZpkcRxU9zXxx7vqLLenhaM9bQ" | openssl enc -aes-256-cbc -a -d -pass pass:"vinewx" -pbkdf2)
+path=$(echo "U2FsdGVkX19DAQytS7NcYxDzkCIQjT5xAEUUDv4gtS4=" | openssl enc -aes-256-cbc -a -d -pass pass:"vinewx" -pbkdf2)
+pushd base-files/files
+mkdir -p $path
+wget -qO- $(curl -sL $(echo "U2FsdGVkX18O1Z1KTmw1he1cry3QXZDHjzKLaBYso71PEZsiexBJlKNv7aripkhiIm8yRIySg6aoTvYGGgkpp5w17rCMGG8t6AuWPmDNLLs=" | openssl enc -aes-256-cbc -a -d -pass pass:"vinewx" -pbkdf2) | sed -r -n 's/.*"browser_download_url": *"(.*)".*/\1/p' | grep armv8 | head -n 1 ) | gunzip -c > $core
+chmod +x $core
+popd
 
-# AdGuard Home
-git clone https://github.com/kankankankankankan/luci-app-adguardhome.git
 
-# JD-dailybonus //临时删除
-#git clone https://github.com/jerrykuku/node-request.git
-#git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
-
-# dockerman
-#svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman
-#svn co https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker
-
-# Return to "friendlywrt" directory.
+# Return to "openwrt" directory.
 cd ../
 
-#解决不能适配编译环境最低要求
-#nettls修复
-#wget -O friendlywrt/package/libs/nettle/Makefile https://raw.githubusercontent.com/openwrt/openwrt/master/package/libs/nettle/Makefile
-#golang修复
-mkdir -p friendlywrt/feeds/packages/lang/golang/golang/
-wget -O friendlywrt/feeds/packages/lang/golang/golang/Makefile https://raw.githubusercontent.com/openwrt/packages/master/lang/golang/golang/Makefile
-
 # diskman
-#mkdir -p package/luci-app-diskman
-#wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Makefile -O package/luci-app-diskman/Makefile
-#mkdir -p package/parted
-#wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Makefile
-
-# hello world
-#sed -i "/routing/a\\$(echo "U2FsdGVkX1+AeI7cP72nGJzrdtGxFrYZW+kKEANWGZryYXLSls7b7Z3awocMj1hEJ15w20FKz2msgAoTnYyILpGZKHr+nxL/GoilV5oHp8Q=" | openssl enc -aes-256-cbc -a -d -pass pass:"vinewx" -pbkdf2)" feeds.conf.default
-
-# passwall
-echo 'src-git lienol https://github.com/Lienol/openwrt-package' >> feeds.conf.default
-#echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >> feeds.conf.default
-#echo 'src-git small https://github.com/kenzok8/small' >> feeds.conf.default
-#echo 'src-git diy1 https://github.com/xiaorouji/openwrt-passwall.git' >> feeds.conf.default
+mkdir -p package/luci-app-diskman
+wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/applications/luci-app-diskman/Makefile -O package/luci-app-diskman/Makefile
+mkdir -p package/parted
+wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Makefile

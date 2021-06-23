@@ -1,13 +1,14 @@
 #!/bin/sh
-# THIS SCIPRT ONLY RUN ONCE. Base on /etc/firstboot_${board}
 
-uci set luci.main.mediaurlbase="/luci-static/argon"
+uci set luci.main.lang=zh_cn
+uci commit luci
 
 uci batch <<EOF
 set system.@system[0].hostname=NEO
 set system.@system[0].zonename='Asia/Shanghai'
 set system.@system[0].timezone='CST-8'
 EOF
+uci commit system
 echo CST-8 > /etc/TZ
 
 echo > /etc/config/network
@@ -22,15 +23,17 @@ set network.globals.ula_prefix='fd0e:8876:14fb::/48'
 set network.lan=interface
 set network.lan.type='bridge'
 set network.lan.ifname='eth0'
-set network.lan.ipaddr='192.168.2.1'
-set network.lan.netmask='255.255.255.0'
 set network.lan.proto='dhcp'
 set network.lan.ip6assign='60'
 EOF
+uci commit network
 
 uci set uhttpd.main.redirect_https='0'
+uci commit uhttpd
 
-uci commit
+uci set fstab.@global[0].anon_mount=1
+uci commit fstab
 
-/etc/init.d/system reload
-/etc/init.d/uhttpd reload
+sed -i '/exit 0/i\mkdir /tmp/resolv.conf.d && ln -s /tmp/resolv.conf.auto /tmp/resolv.conf.d/resolv.conf.auto' /etc/rc.local
+
+exit 0

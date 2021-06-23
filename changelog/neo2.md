@@ -1,6 +1,31 @@
 # NEO2 Changelog
 ###### （Weekly syncing with the upstream repository）
 
+## 20210622
+* rollback to 19.07.1
+* ~~luci-app-dockerman~~
+
+---
+
+## 20210429
+* add FULLCONE & FlowOffload support
+* luci-app-aria2✔
+* luci-app-flowoffload✔
+
+---
+
+## 20210424
+* Use [OpenWrt](https://git.openwrt.org/openwrt/openwrt.git) official source code instead of [FriendlyWrt](https://github.com/friendlyarm/friendlywrt)
+* ~~luci-theme-darkmatter~~
+* luci-theme-argon✔
+
+---
+
+## 20200927
+* Support NanoPi-NEO2-Black
+
+---
+
 ## 20200913
 * Fix `/etc/bench.log` error
 * ~~kmod-mt76x2u~~
