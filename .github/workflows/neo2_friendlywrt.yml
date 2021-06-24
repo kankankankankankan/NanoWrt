@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-name: OpenWrt for NanoPi-NEO2
+name: NanoPi-NEO2-Master
 
 on:
   workflow_dispatch:
@@ -33,7 +33,6 @@ jobs:
   build:
     
     runs-on: ubuntu-18.04
-    if: github.repository == 'kankankankankankan/NanoWrt'
     
     steps:
 
